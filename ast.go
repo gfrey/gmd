@@ -48,6 +48,10 @@ func newAstNode(typ astNodeType, lines []string, file string, idx int) *AstNode 
 	}
 }
 
+func (n *AstNode) String() string {
+	return fmt.Sprintf("%s:%d: %s", n.File, n.LineNo, n.Type.String())
+}
+
 func (n *AstNode) addChild(child *AstNode) {
 	n.Children = append(n.Children, child)
 }
